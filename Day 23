@@ -1,0 +1,136 @@
+/* Question 89 : Find First Non-Repeating Character */
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+    char str[100];
+    int i,j,count;
+
+    gets(str);
+
+    for(i=0;str[i]!='\0';i++)
+    {
+        count=0;
+
+        for(j=0;str[j]!='\0';j++)
+        {
+            if(str[i]==str[j])
+                count++;
+        }
+
+        if(count==1)
+        {
+            printf("First Non-Repeating Character = %c",str[i]);
+            break;
+        }
+    }
+}
+
+/* Question 90 : Find First Repeating Character */
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+    char str[100];
+    int i,j;
+
+    gets(str);
+
+    for(i=0;str[i]!='\0';i++)
+    {
+        for(j=i+1;str[j]!='\0';j++)
+        {
+            if(str[i]==str[j])
+            {
+                printf("First Repeating Character = %c",str[i]);
+                return;
+            }
+        }
+    }
+
+    printf("No Repeating Character");
+}
+
+/* Question 91 : Check Anagram Strings */
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+    char str1[100],str2[100];
+    int i,j,len1,len2,temp;
+
+    gets(str1);
+    gets(str2);
+
+    len1=strlen(str1);
+    len2=strlen(str2);
+
+    if(len1!=len2)
+    {
+        printf("Not Anagram");
+        return;
+    }
+
+    for(i=0;i<len1-1;i++)
+    {
+        for(j=i+1;j<len1;j++)
+        {
+            if(str1[i]>str1[j])
+            {
+                temp=str1[i];
+                str1[i]=str1[j];
+                str1[j]=temp;
+            }
+
+            if(str2[i]>str2[j])
+            {
+                temp=str2[i];
+                str2[i]=str2[j];
+                str2[j]=temp;
+            }
+        }
+    }
+
+    if(strcmp(str1,str2)==0)
+        printf("Anagram");
+    else
+        printf("Not Anagram");
+}
+
+/* Question 92 : Find Maximum Occurring Character */
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+    char str[100],maxChar;
+    int i,j,count,maxCount=0;
+
+    gets(str);
+
+    for(i=0;str[i]!='\0';i++)
+    {
+        count=0;
+
+        for(j=0;str[j]!='\0';j++)
+        {
+            if(str[i]==str[j])
+                count++;
+        }
+
+        if(count>maxCount)
+        {
+            maxCount=count;
+            maxChar=str[i];
+        }
+    }
+
+    printf("Maximum Occurring Character = %c",maxChar);
+}

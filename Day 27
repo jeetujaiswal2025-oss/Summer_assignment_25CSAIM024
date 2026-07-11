@@ -1,0 +1,116 @@
+/* Question 105 : Student Record Management System */
+
+#include<stdio.h>
+
+struct student
+{
+    int roll;
+    char name[30];
+    float marks;
+};
+
+void main()
+{
+    struct student s;
+
+    printf("Enter Roll No: ");
+    scanf("%d",&s.roll);
+
+    printf("Enter Name: ");
+    scanf("%s",s.name);
+
+    printf("Enter Marks: ");
+    scanf("%f",&s.marks);
+
+    printf("\nStudent Details\n");
+    printf("Roll No = %d\n",s.roll);
+    printf("Name = %s\n",s.name);
+    printf("Marks = %.2f\n",s.marks);
+}
+
+
+/* Question 106 : Employee Management System */
+
+#include<stdio.h>
+
+struct employee
+{
+    int id;
+    char name[30];
+    float salary;
+};
+
+void main()
+{
+    struct employee e;
+
+    printf("Enter Employee ID: ");
+    scanf("%d",&e.id);
+
+    printf("Enter Employee Name: ");
+    scanf("%s",e.name);
+
+    printf("Enter Salary: ");
+    scanf("%f",&e.salary);
+
+    printf("\nEmployee Details\n");
+    printf("ID = %d\n",e.id);
+    printf("Name = %s\n",e.name);
+    printf("Salary = %.2f\n",e.salary);
+}
+
+
+/* Question 107 : Salary Management System */
+
+#include<stdio.h>
+
+void main()
+{
+    float basic,hra,da,gross;
+
+    printf("Enter Basic Salary: ");
+    scanf("%f",&basic);
+
+    hra = basic * 0.20;
+    da  = basic * 0.10;
+
+    gross = basic + hra + da;
+
+    printf("HRA = %.2f\n",hra);
+    printf("DA = %.2f\n",da);
+    printf("Gross Salary = %.2f\n",gross);
+}
+
+
+/* Question 108 : Marksheet Generation System */
+
+#include<stdio.h>
+
+void main()
+{
+    int m1,m2,m3,m4,m5,total;
+    float per;
+
+    printf("Enter 5 Subject Marks:\n");
+
+    scanf("%d",&m1);
+    scanf("%d",&m2);
+    scanf("%d",&m3);
+    scanf("%d",&m4);
+    scanf("%d",&m5);
+
+    total = m1+m2+m3+m4+m5;
+    per = total/5.0;
+
+    printf("\nTotal Marks = %d\n",total);
+    printf("Percentage = %.2f\n",per);
+
+    if(per>=60)
+        printf("Division = First");
+    else if(per>=45)
+        printf("Division = Second");
+    else if(per>=33)
+        printf("Division = Third");
+    else
+        printf("Fail");
+}
